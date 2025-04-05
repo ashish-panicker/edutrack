@@ -34,7 +34,7 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ResponseDto.builder()
                     .status(HttpStatus.CREATED)
-                    .payload(dto).build()
+                    .response(dto).build()
         );
     }
 
@@ -44,11 +44,16 @@ public class CourseController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Course>> getAllCourses() {
+    public ResponseEntity<ResponseDto> getAllCourses() {
         var courses = courseService.findAll();
         if (courses.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(courses);
+        return ResponseEntity.ok(
+                ResponseDto.builder()
+                        .status(HttpStatus.OK)
+                        .response(courses)
+                        .build()
+        );
     }
 }

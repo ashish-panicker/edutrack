@@ -1,5 +1,6 @@
 package com.edutrack.course_service.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -19,5 +20,6 @@ public class RequestDto {
     private String description;
 
     @NotBlank(message = "Trainer name is mandatory")
+    @JsonProperty("trainer_name")
     private String trainerName;
 }
