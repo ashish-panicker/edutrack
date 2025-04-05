@@ -40,7 +40,7 @@ public class CourseController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Course> getCourseById(@PathVariable Long id) {
-        return courseService.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+        return courseService.findById(id).map(course -> ResponseEntity.ok(course)).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
