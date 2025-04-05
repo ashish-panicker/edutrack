@@ -43,9 +43,9 @@ public class StudentController {
     public ResponseEntity<ResponseDto> getCourseById(@PathVariable Long id) {
         return studentService.findById(id)
                 .map(student -> ResponseEntity
-                        .status(HttpStatus.CREATED)
+                        .status(HttpStatus.OK)
                         .body(
-                                ResponseDto.builder().status(HttpStatus.CREATED).payload(student).build()
+                                ResponseDto.builder().status(HttpStatus.OK).payload(student).build()
                         )
                 )
                 .orElse(ResponseEntity.notFound().build());
@@ -59,6 +59,6 @@ public class StudentController {
                     ResponseDto.builder().status(HttpStatus.NO_CONTENT).payload(List.of()).build()
             );
         }
-        return ResponseEntity.ok(ResponseDto.builder().status(HttpStatus.NO_CONTENT).payload(students).build());
+        return ResponseEntity.ok(ResponseDto.builder().status(HttpStatus.OK).payload(students).build());
     }
 }
