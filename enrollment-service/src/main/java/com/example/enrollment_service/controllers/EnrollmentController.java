@@ -1,13 +1,10 @@
 package com.example.enrollment_service.controllers;
 
-import com.example.enrollment_service.dto.CourseDto;
 import com.example.enrollment_service.dto.RequestDto;
 import com.example.enrollment_service.dto.ResponseDto;
-import com.example.enrollment_service.dto.StudentDto;
 import com.example.enrollment_service.model.Enrollment;
 import com.example.enrollment_service.service.EnrollmentService;
 import jakarta.validation.Valid;
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
